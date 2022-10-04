@@ -8,7 +8,6 @@
 <body>
      <form action="contact.php" method="post">
      	<fieldset>
-     	<legend></legend>
      	<h1>LOGIN</h1>
      	<h3>
      		<label>nama:</label>
@@ -20,7 +19,10 @@
      	</h3>
      	<h3>
      		<label>Login Sebagai:</label>
-     		<input type="text" name="subject" placeholder="your subject">
+			<select name="Login sebagai" id="">
+			<option value="Admin">Admin</option>
+			<option value="Tamu" >Tamu</option>
+		</select>
      	</h3>	 
      		<input type="submit" name="submit" placeholder="send">
      </fieldset>
