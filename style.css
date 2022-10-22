@@ -125,14 +125,11 @@ p {
 h3 {
     font-family: 'comic sans ms';
     font-weight: 800;
-    font font-size: 30px;
+    font-size: 30px;
     margin-bottom: 20px;
     color: #47b5ff;
 }
 .tengah {
     text-align: center;
-    width: 100%;        
-}  
-@media only screen and (max-width: 600px) {
-    
+    width: 100%;
 }
