@@ -88,7 +88,7 @@ h2{
     margin-bottom: 20px;
     color: #47B5FF;
     width: 100%;
-    line-height: 50%;
+    line-height: 50px;
 }
 a.tbl-biru {
     background: #47B5FF;
@@ -132,4 +132,43 @@ h3 {
 .tengah {
     text-align: center;
     width: 100%;
+}
+@media screen and (max-width : 991.9px){
+    .wrapper{
+        width: 90%;
+    }
+
+    .logo a{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    nav .menu{
+        width: 100%;
+        margin: 0;
+    }
+
+    nav .menu ul{
+        text-align: center;
+        margin: auto;
+        line-height: 60px;
+    }
+    nav .menu ul li{
+        display: inline-block;
+        float: none;
+    }
+    section{
+        display: block;
+    }
+    section img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    .footer{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
 }
