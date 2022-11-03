@@ -9,11 +9,11 @@
 body {
     min-height: 100vh;
 }
-.navbar {
+.sidebar {
     position: fixed;
+    background: #3A6EFFFF;
     width: 20vw;
     min-height: 100vh;
-    background: #3A6EFFFF;
     display: flex;
     flex-direction: column;
 }
@@ -28,22 +28,21 @@ body {
     cursor: pointer;
 }
 
-.navbar ul li{
+.sidebar ul li{
     font-size: 24px;
     padding: 10px 40px;
     color: white;
-    display: block;
+    display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     cursor: pointer;
 }
 
-.navbar ul li a {
+.sidebar ul li a {
     color: white;
-    text-align: center;
-    text-decoration: none;
+
 }
-.navbar ul li :hover{
+.sidebar ul li :hover{
     background: rgba(0, 0, 0, 2);
     color: grey;
 }
@@ -112,4 +111,44 @@ body {
     border-radius: 50%;
     color: #191919;
     margin: 5px 5px;
+}
+
+.content{
+    position: fixed;
+    top: 10vh;
+    right: 0;
+    width: 80vw;
+    min-height: 110vh;
+    background: lightgrey;
+    align-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.stok{
+    margin-left: 5vh;
+}
+
+h2{
+    color: white;
+    text-align: center;
+}
+
+td{
+    padding: 3px;
+    height: 25px;
+}
+
+th{
+    background-color: #47B5FF;
+    color: white;
+    height: 30px;
+}
+table tbody td{
+    color: #353535;
+}
+
+table tbody tr:nth-child(odd) td{
+    background-color: #f2f2f2;
+
 }

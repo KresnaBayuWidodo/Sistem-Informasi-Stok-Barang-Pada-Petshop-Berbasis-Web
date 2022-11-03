@@ -4,33 +4,38 @@
     <meta charset="UTF-8">
     <title>Dashboard Admin</title>
     <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../Project Web/admin.css">
 </head>
-<body>
-<div class="navbar">
-    <h1 class="admin">Dashboard Admin</h1>
-    <ul>
-        <li><a href="">Dashboard</a></li>
-        <li><a href="">Stok Barang</a></li>
-        <li><a href="">Barang Masuk</a></li>
-        <li><a href="">Barang Keluasr</a></li>
-        <li><a href="">Daftar suplier</a></li>
-        <li><a href="">Laporan</a></li>
-    </ul>
-</div>
-<div class="container">
-    <div class="header">
-        <div class="nav">
-            <div class="search">
-                <input type="text" placeholder="Pencarian...">
-                <button type="submit"></button>
-            </div>
-            <div class="user">
-                <a href="" class="btn"></a>
-                <a href="" class="btn"></a>
-                <a href="" class="btn"></a>
+    <body>
+        <div class="sidebar">
+            <h1 class="admin">Dashboard Admin</h1>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="barang.html">Stok Barang</a></li>
+                <li><a href="barangMasuk.html">Barang Masuk</a></li>
+                <li><a href="barangKeluar.html">Barang Keluar</a></li>
+                <li><a href="">Daftar suplier</a></li>
+                <li><a href="">Laporan</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="header">
+                <div class="nav">
+                    <div class="search">
+                        <input type="text" placeholder="Pencarian...">
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></i></button>
+                    </div>
+                    <div class="user">
+                        <a href="" class="btn"><i class="fa-solid fa-plus"></i></a>
+                        <a href="" class="btn"><i class="fa-solid fa-bell"></i></a>
+                        <a href="" class="btn"><i class="fa-solid fa-user"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
-
-    </div>
-</div>
-</body>
+        <div class="content">
+            <div class="stok"></div>
+        </div>
+    </body>
+</html>

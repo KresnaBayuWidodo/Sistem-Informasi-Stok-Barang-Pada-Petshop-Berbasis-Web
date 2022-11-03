@@ -1,43 +1,164 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'open sans',sans-serif;
 }
 
-h1{
-    text-align: center;
-    margin-bottom: 12px;
-}
-
-table{
-    border-collapse: collapse;
-    position: relative;
+.wrapper {
+    width: 1100px;
     margin: auto;
-    color: black;
+    position: relative;
 }
 
-table th,table td{
-    border: 1px solid black;
-    padding: 7px 80px;
+.logo {
+    font-size: 50px;
+    font-weight: bold;
+    float: left;
+    font-family: Courier;
+    color: #47B5FF;
+}
+
+.menu{
+    float: right;
+}
+nav {
+    width: 100%;        
+    margin: auto;
+    display: flex;
+    line-height: 80px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0px;
+    background: #FFE9A0;
+    z-index: 1;
+    border: 1px solid #47B5FF;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+
+}
+
+nav ul li {
+    float: left;
+
+}
+
+nav ul li a {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    padding: 0px 16px 0px 16px;
+    text-decoration: none;
+}
+nav ul li a:hover{
+    text-decoration: underline;
+} 
+
+nav ul li .dropdown{
+    display: none;
+
+}
+
+nav ul li:hover .dropdown{
+    display: block;
+    background: #FFE9A0;
+    position: absolute;
+    padding: 10px;
+}
+nav ul li:hover .dropdown li{
+    display: block;
+}
+
+nav ul li:hover .dropdown li button{
+    padding: 10px;
+    border: none;
+    background-color:#47B5FF;
+    font-size: 18px;
+    color: #fafafa;
+}
+
+nav ul li:hover .dropdown li input{
+    padding: 5px;
+    border-radius: 1px;
+}    
+
+a.tbl-biru {
+    background: #47B5FF;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 15px 20px 15px 20px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+a.tbl-biru:hover {
+    background: #FFE9A0;
+    text-decoration: none;
+
+}
+
+.content{
+    position: relative;
+    top: 0vh;
+    width: 100%;
+    min-height: 1100px;
+    align-content: center;
+}
+
+.stok{
+    margin-left: 5vh;
+}
+
+h2{
+    color: #47B5FF;
     text-align: center;
 }
 
-table thead th{
-    background: #47B5FF;
-    color: #fff;
-    border-color: black;
-    text-transform: uppercase;
+th{
+    background-color: #47B5FF;
+    color: white;
+    height: 30px;
 }
-
 table tbody td{
     color: #353535;
 }
 
 table tbody tr:nth-child(odd) td{
     background-color: #f2f2f2;
+
 }
 
-table tbody tr:hover td{
-    background-color: #ffffa2;
-    border-color: #ffff0f;
-    transition: all .2s;
+#contact {
+    background: #FFE9A0;
+    padding: 50xp 0xp 50xp 0xp;
+}
+
+.footer {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.footer-section{
+    width: 20%;
+    margin: auto;
+}
+h3 {
+    font-family: 'comic sans ms';
+    font-weight: 800;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #47b5ff;
+}
+.tengah {
+    text-align: center;
+    width: 100%;
 }
