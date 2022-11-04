@@ -116,22 +116,53 @@ body {
 .content{
     position: fixed;
     top: 10vh;
+    overflow: auto;
     right: 0;
     width: 80vw;
     min-height: 110vh;
-    background: lightgrey;
+    background: none;
     align-content: center;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     z-index: 1;
 }
 
+.cards{
+    padding: 15px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 230px;
+    height: 130px;
+    background-color: #47B5FF;
+    margin: 15px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+.box h1{
+    color: white;
+}
+
+
+
 .stok{
     margin-left: 5vh;
 }
 
+table{
+    margin-top: 5vh;
+}
+
 h2{
-    color: white;
-    text-align: center;
+    border-bottom: 2px solid lightgray;
+    color: black;
+    margin-top: 7vh;
 }
 
 td{
@@ -143,6 +174,11 @@ th{
     background-color: #47B5FF;
     color: white;
     height: 30px;
+}
+
+th , td{
+    min-width: 120px;
+    text-align: center;
 }
 table tbody td{
     color: #353535;
