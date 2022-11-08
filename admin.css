@@ -171,7 +171,7 @@ body {
 }
 
 i:hover{
-    color: lightcyan;
+    color: red;
 }
 
 .stok{
@@ -193,11 +193,13 @@ table{
 }
 
 .title button{
+    font-size: 15px;
+    color: black;
     margin-top: 3vh;
 }
 
 td{
-    padding: 3px;
+    padding: 5px;
     height: 25px;
 }
 
@@ -218,6 +220,12 @@ table tbody td{
 table tbody tr:nth-child(odd) td{
     background-color: #f2f2f2;
 
+}
+
+table tbody tr:hover td{
+    background-color: #FFE9A0;
+    border-color: #47B5FF;
+    transition: all .2s;
 }
 
 @media screen and (max-width: 1050px) {

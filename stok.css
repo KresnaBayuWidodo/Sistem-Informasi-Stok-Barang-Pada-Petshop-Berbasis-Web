@@ -1,6 +1,3 @@
-body{
-    font-family: Arial, Helvetica, sans-serif;
-}
 body {
     margin: 0px;
     padding: 0px;
@@ -68,7 +65,7 @@ nav ul li .dropdown{
 
 nav ul li:hover .dropdown{
     display: block;
-    background: transparent;
+    background: white;
     position: absolute;
     padding: 10px;
 }
@@ -107,7 +104,7 @@ a.tbl-biru:hover {
 .content{
     position: relative;
     top: 0vh;
-    height: 500px;
+    height: 1100px;
     width: 100%;
     overflow: auto;
     min-height: 500px;
@@ -122,7 +119,7 @@ table{
 
 h2{
     border-bottom: 1px solid grey;
-    color: black;
+    color: #47B5FF;
     margin-left: 5vh;
     margin-right: 5vh;
     text-align: center;
@@ -132,10 +129,15 @@ h2{
 th{
     background-color: #47B5FF;
     color: white;
-    min-width: 207px;
+    min-width: 195px;
     top: 5vh;
     height: 30px;
 }
+
+th , td{
+    padding: 5px;
+}
+
 table tbody td{
     color: #353535;
 }
@@ -145,11 +147,20 @@ table tbody tr:nth-child(odd) td{
 
 }
 
-button{
+table tbody tr:hover td{
+    background-color: #FFE9A0;
+    border-color: #47B5FF;
+    transition: all .2s;
+}
+
+.content button{
     margin-left: 5vh;
+    margin-bottom: 3vh;
+}
+
+.content button a{
+    font-size: 20px;
     color: black;
-    font-size: 10px;
-    margin-bottom: 5vh;
 }
 
 #contact {
@@ -174,10 +185,6 @@ h3 {
     font-size: 20px;
     margin-bottom: 20px;
     color: #47b5ff;
-}
-.tengah {
-    text-align: center;
-    width: 100%;
 }
 
 @media screen and (max-width : 1340px){
