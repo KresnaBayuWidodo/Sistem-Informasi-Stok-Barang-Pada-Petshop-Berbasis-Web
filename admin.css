@@ -17,6 +17,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 .admin {
     height: 10vh;
     display: flex;
@@ -33,13 +34,17 @@ body {
     padding: 10px 40px;
     color: white;
     display: flex;
-    flex-direction: column;
     align-items: left;
     cursor: pointer;
 }
 
+.admin i{
+    font-size: 20px;
+}
+
 .sidebar ul li a {
     color: white;
+    display: flex;
 
 }
 .sidebar ul li :hover{
@@ -113,6 +118,17 @@ body {
     margin: 5px 5px;
 }
 
+.logout{
+    position: relative;
+    object-position: right;
+    margin-top: 7vh;
+}
+.logout i{
+    font-size: 20px;
+    color: black;
+}
+
+
 .content{
     position: fixed;
     top: 10vh;
@@ -149,20 +165,35 @@ body {
     color: white;
 }
 
+.icon{
+    color: #FFE9A0;
+    font-size: 40px;
+}
 
+i:hover{
+    color: lightcyan;
+}
 
 .stok{
     margin-left: 5vh;
+    margin-right: 5vh;
+    align-items: center;
+    justify-content: center;
+    display: block;
 }
 
 table{
     margin-top: 5vh;
 }
 
-h2{
+.title h2{
     border-bottom: 2px solid lightgray;
     color: black;
     margin-top: 7vh;
+}
+
+.title button{
+    margin-top: 3vh;
 }
 
 td{
@@ -187,4 +218,36 @@ table tbody td{
 table tbody tr:nth-child(odd) td{
     background-color: #f2f2f2;
 
+}
+
+@media screen and (max-width: 1050px) {
+    .sidebar ul li{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 940px) {
+    .teks{
+        display: none;
+    }
+    .sidebar{
+        align-items: center;
+    }
+    .sidebar ul li i{
+        font-size: 30px;
+    }
+    .sidebar ul li :hover{
+        padding: 8px 38px;
+    }
+}
+@media screen and (max-width: 600px){
+    h1{
+        display: none;
+    }
+    .admin i{
+        font-size: 18px;
+    }
+    .cards{
+        justify-content: center;
+        display: block;
+    }
 }

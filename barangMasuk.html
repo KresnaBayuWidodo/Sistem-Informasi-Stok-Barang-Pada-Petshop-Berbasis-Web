@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="admin.css">
 </head>
 <body>
     <div class="sidebar">
-        <h1 class="admin"><i class="fa-solid fa-gauge"></i>Dashboard Admin</h1>
+        <div class="admin"><i class="fa-solid fa-house"></i><h1>Admin</h1></div>
         <ul>
-            <li><a href="Admin.html"><i class="fa-solid fa-house"></i>Dashboard</a></li>
-            <li><a href="barang.html"><i class="fa-solid fa-box"></i>Stok Barang</a></li>
-            <li><a href="barangMasuk.html"><i class="fa-solid fa-right-to-bracket"></i>Barang Masuk</a></li>
-            <li><a href="barangKeluar.html"><i class="fa-sharp fa-solid fa-box-open"></i>Barang Keluar</a></li>
-            <li><a href=""><i class="fa-solid fa-people-line"></i>Daftar suplier</a></li>
-            <li><a href="Laporan.html"><i class="fa-solid fa-clipboard"></i>Laporan</a></li>
+            <li><a href="Admin.html"><i class="fa-solid fa-gauge"></i>&nbsp;<span class="teks">Dashboard</span></a></li>
+            <li><a href="barang.html"><i class="fa-solid fa-box">&nbsp;</i><span class="teks">Stok Barang</span></a></li>
+            <li><a href="barangMasuk.html"><i class="fa-solid fa-house">&nbsp;</i><span class="teks">Stok Masuk</span></a></li>
+            <li><a href="barangKeluar.html"><i class="fa-solid fa-box">&nbsp;</i><span class="teks">Stok Keluar</span></a></li>
+            <li><a href="Supplier.html"><i class="fa-solid fa-house">&nbsp;</i><span class="teks">Daftar Suplier</span></a></li>
+            <li><a href="Laporan.html"><i class="fa-solid fa-box">&nbsp;</i><span class="teks">Laporan</span></a></li>
+            <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;<span class="teks">LogOut</span></a></li>
         </ul>
     </div>
     <div class="container">
@@ -38,17 +39,18 @@
     <div class="content">
         <div class="stok">
             <div class="title">
-                <h2>Stok Barang</h2>
+                <h2>Stok Masuk</h2>
+                <button>add new<i class="fa-solid fa-plus"></i></button>
             </div>
             <table border="1">
                 <thead>
                     <tr>
                         <th>Kode Barang</th>
                         <th>Jenis Barang</th>
-                        <th>Nama Barang</th>
+                        <th>Brand</th>
                         <th>Berat/Ukuran</th>
-                        <th>Barang Masuk</th>
-                        <th>Harga Barang</th>
+                        <th>Stok Masuk</th>
+                        <th>Harga</th>
                         <th colspan="2">Aksi</th>
                     </tr>
                 </thead>
@@ -64,90 +66,90 @@
                         <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
                     </tr>
                     <tr>
-                        <td>BRG0001</td>
+                        <td>BRG0002</td>
                         <td>Pakan kucing</td>
                         <td>bold</td>
+                        <td>500g</td>
+                        <td>100</td>
+                        <td>Rp.8.000,00</td>
+                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
+                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>BRG0003</td>
+                        <td>Pakan Anjing</td>
+                        <td>bold</td>
                         <td>1 kg</td>
+                        <td>100</td>
+                        <td>Rp.20.000,00</td>
+                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
+                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>BRG0004</td>
+                        <td>Pakan Burung</td>
+                        <td>Jawara</td>
+                        <td>1 kg</td>
+                        <td>100</td>
+                        <td>Rp.30.000,00</td>
+                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
+                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>BRG0005</td>
+                        <td>Pakan ikan</td>
+                        <td>Takari</td>
+                        <td>1 kg</td>
+                        <td>100</td>
+                        <td>Rp.30.000,00</td>
+                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
+                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>BRG0006</td>
+                        <td>Pakan Ikan</td>
+                        <td>Hiroyuki</td>
+                        <td>1 kg</td>
+                        <td>10</td>
+                        <td>Rp.60.000,00</td>
+                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
+                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>BRG0007</td>
+                        <td>Sisir Kucing</td>
+                        <td>none</td>
+                        <td>10 gr</td>
                         <td>100</td>
                         <td>Rp.15.000,00</td>
                         <td><button><i class="fa-solid fa-trash-can"></i></button></td>
                         <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
                     </tr>
                     <tr>
-                        <td>BRG0001</td>
-                        <td>Pakan kucing</td>
-                        <td>bold</td>
-                        <td>1 kg</td>
+                        <td>BRG0008</td>
+                        <td>Obat Jamur</td>
+                        <td>Wormectin</td>
+                        <td>5 ml</td>
                         <td>100</td>
-                        <td>Rp.15.000,00</td>
+                        <td>Rp.17.000,00</td>
                         <td><button><i class="fa-solid fa-trash-can"></i></button></td>
                         <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
                     </tr>
                     <tr>
-                        <td>BRG0001</td>
-                        <td>Pakan kucing</td>
-                        <td>bold</td>
+                        <td>BRG0009</td>
+                        <td>Pakan Kelinci</td>
+                        <td>Timoty hay</td>
                         <td>1 kg</td>
                         <td>100</td>
-                        <td>Rp.15.000,00</td>
+                        <td>Rp.60.000,00</td>
                         <td><button><i class="fa-solid fa-trash-can"></i></button></td>
                         <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
                     </tr>
                     <tr>
-                        <td>BRG0001</td>
-                        <td>Pakan kucing</td>
-                        <td>bold</td>
-                        <td>1 kg</td>
-                        <td>100</td>
-                        <td>Rp.15.000,00</td>
-                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>BRG0001</td>
-                        <td>Pakan kucing</td>
-                        <td>bold</td>
-                        <td>1 kg</td>
-                        <td>100</td>
-                        <td>Rp.15.000,00</td>
-                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>BRG0001</td>
-                        <td>Pakan kucing</td>
-                        <td>bold</td>
-                        <td>1 kg</td>
-                        <td>100</td>
-                        <td>Rp.15.000,00</td>
-                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>BRG0001</td>
-                        <td>Pakan kucing</td>
-                        <td>bold</td>
-                        <td>1 kg</td>
-                        <td>100</td>
-                        <td>Rp.15.000,00</td>
-                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>BRG0001</td>
-                        <td>Pakan kucing</td>
-                        <td>bold</td>
-                        <td>1 kg</td>
-                        <td>100</td>
-                        <td>Rp.15.000,00</td>
-                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>BRG0001</td>
-                        <td>Pakan kucing</td>
-                        <td>bold</td>
-                        <td>1 kg</td>
+                        <td>BRG0010</td>
+                        <td>Obat Jamur</td>
+                        <td>Radix 55</td>
+                        <td>10 ml</td>
                         <td>100</td>
                         <td>Rp.15.000,00</td>
                         <td><button><i class="fa-solid fa-trash-can"></i></button></td>

@@ -68,7 +68,7 @@ nav ul li .dropdown{
 
 nav ul li:hover .dropdown{
     display: block;
-    background: #FFE9A0;
+    background: transparent;
     position: absolute;
     padding: 10px;
 }
@@ -110,7 +110,7 @@ a.tbl-biru:hover {
     height: 500px;
     width: 100%;
     overflow: auto;
-    min-height: 1100px;
+    min-height: 500px;
     align-content: center;
 }
 
@@ -143,6 +143,13 @@ table tbody td{
 table tbody tr:nth-child(odd) td{
     background-color: #f2f2f2;
 
+}
+
+button{
+    margin-left: 5vh;
+    color: black;
+    font-size: 10px;
+    margin-bottom: 5vh;
 }
 
 #contact {

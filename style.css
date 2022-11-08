@@ -72,7 +72,7 @@ nav ul li .dropdown{
 
 nav ul li:hover .dropdown{
     display: block;
-    background: #FFE9A0;
+    background: transparent;
     position: absolute;
     padding: 10px;
 }
