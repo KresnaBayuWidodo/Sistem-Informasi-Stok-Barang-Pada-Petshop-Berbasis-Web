@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="admin.css">
 </head>
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <div class="sidebar">
         <div class="admin"><i class="fa-solid fa-house"></i><h1>Admin</h1></div>
         <ul>
@@ -39,10 +40,24 @@
     <div class="content">
         <div class="stok">
             <div class="title">
-                <h2>Stok Barang</h2>
-                <button>add new<i class="fa-solid fa-plus"></i></button>
+                <ul>
+                    <h2>Stok Barang</h2>
+                    <li><button onclick="">Aksi</button>
+                        <ul class="dropdown">
+                            <li>Kode Barang:<br><input type="text:" name="kbarang" id="kbarang"></li>
+                            <li>Jenis Barang: <br><input type="text:" name="jbarang" id="jbarang"></li>
+                            <li>Brand:<br> <input type="text:" name="brand" id="brand"></li>
+                            <li>Berat:<br> <input type="text:" name="berat" id="berat"></li>
+                            <li>Stok:<br> <input type="text:" name="stok" id="stok"></li>
+                            <li>Harga:<br> <input type="text:" name="harga" id="harga"></li>
+                            <button onclick="addHtmlTableRow();">Tambah</button>
+                            <button onclick="editHtmlTbleSelectedRow()">Edit</button>
+                            <button onclick="removeSelectedRow()">Hapus</button>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <table border="1">
+            <table id="table" border="1">
                 <thead>
                     <tr>
                         <th>Kode Barang</th>
@@ -62,8 +77,8 @@
                         <td>1 kg</td>
                         <td>100</td>
                         <td>Rp.15.000,00</td>
-                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+                        <td><button onclick="removeSelectedRow()"><i class="fa-solid fa-trash-can"></i></button></td>
+                        <td><button onclick="editHtmlTbleSelectedRow()"><i class="fa-solid fa-pen-to-square"></i></button></td>
                     </tr>
                     <tr>
                         <td>BRG0002</td>
@@ -159,5 +174,123 @@
             </table>
         </div>
     </div>
+    <script>
+            
+        var rIndex,
+            table = document.getElementById("table");
+        
+        function checkEmptyInput()
+        {
+            var isEmpty = false,
+                kbarang = document.getElementById("kbarang").value,
+                jbarang = document.getElementById("jbarang").value,
+                brand = document.getElementById("brand").value;
+                berat = document.getElementById("berat").value;
+                stok = document.getElementById("stok").value;
+                harga = document.getElementById("harga").value;
+        
+            if(kbarang === ""){
+                alert("Kode Barang Connot Be Empty");
+                isEmpty = true;
+            }
+            else if(jbarang === ""){
+                alert("Jenis Barang Connot Be Empty");
+                isEmpty = true;
+            }
+            else if(brand === ""){
+                alert("Brand Connot Be Empty");
+                isEmpty = true;
+            }
+            else if(berat === ""){
+                alert("Berat Connot Be Empty");
+                isEmpty = true;
+            }
+            else if(stok === ""){
+                alert("Stok Connot Be Empty");
+                isEmpty = true;
+            }
+            else if(harga === ""){
+                alert("Harga Connot Be Empty");
+                isEmpty = true;
+            }
+            return isEmpty;
+        }
+        
+        function addHtmlTableRow()
+        {
+            if(!checkEmptyInput()){
+            var newRow = table.insertRow(table.length),
+                cell1 = newRow.insertCell(0),
+                cell2 = newRow.insertCell(1),
+                cell3 = newRow.insertCell(2),
+                cell4 = newRow.insertCell(3),
+                cell5 = newRow.insertCell(4),
+                cell6 = newRow.insertCell(5),
+                kbarang = document.getElementById("kbarang").value,
+                jbarang = document.getElementById("jbarang").value,
+                brand = document.getElementById("brand").value;
+                berat = document.getElementById("berat").value;
+                stok = document.getElementById("stok").value;
+                harga = document.getElementById("harga").value;
+        
+            cell1.innerHTML = kbarang;
+            cell2.innerHTML = jbarang;
+            cell3.innerHTML = brand;
+            cell4.innerHTML = berat;
+            cell5.innerHTML = stok;
+            cell6.innerHTML = harga;
+            // call the function to set the event to the new row
+            selectedRowToInput();
+        }
+        }
+
+        function selectedRowToInput()
+        {
+            
+            for(var i = 1; i < table.rows.length; i++)
+            {
+                table.rows[i].onclick = function()
+                {
+                  rIndex = this.rowIndex;
+                  document.getElementById("kbarang").value = this.cells[0].innerHTML;
+                  document.getElementById("jbarang").value = this.cells[1].innerHTML;
+                  document.getElementById("brand").value = this.cells[2].innerHTML;
+                  document.getElementById("berat").value = this.cells[3].innerHTML;
+                  document.getElementById("stok").value = this.cells[4].innerHTML;
+                  document.getElementById("harga").value = this.cells[5].innerHTML;
+                };
+            }
+        }
+        selectedRowToInput();
+        
+        function editHtmlTbleSelectedRow()
+        {
+            var kbarang = document.getElementById("kbarang").value,
+                jbarang = document.getElementById("jbarang").value,
+                brand = document.getElementById("brand").value;
+                berat = document.getElementById("berat").value;
+                stok = document.getElementById("stok").value;
+                harga = document.getElementById("harga").value;
+           if(!checkEmptyInput()){
+            table.rows[rIndex].cells[0].innerHTML = kbarang;
+            table.rows[rIndex].cells[1].innerHTML = jbarang;
+            table.rows[rIndex].cells[2].innerHTML = brand;
+            table.rows[rIndex].cells[3].innerHTML = berat;
+            table.rows[rIndex].cells[4].innerHTML = stok;
+            table.rows[rIndex].cells[5].innerHTML = harga;
+          }
+        }
+        
+        function removeSelectedRow()
+        {
+            table.deleteRow(rIndex);
+            document.getElementById("kbarang").value = "";
+            document.getElementById("jbarang").value = "";
+            document.getElementById("brand").value = "";
+            document.getElementById("berat").value = "";
+            document.getElementById("stok").value = "";
+            document.getElementById("harga").value = "";
+        }
+    </script>
 </body>
 </html>

@@ -228,6 +228,21 @@ table tbody tr:hover td{
     transition: all .2s;
 }
 
+.title ul li .dropdown{
+    display: none;
+
+}
+
+.title ul li:hover .dropdown{
+    display: block;
+    background: white;
+    position: absolute;
+    padding: 10px;
+}
+.title ul li:hover .dropdown li{
+    display: block;
+}
+
 @media screen and (max-width: 1050px) {
     .sidebar ul li{
         font-size: 18px;
