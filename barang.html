@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <div class="sidebar">
         <div class="admin"><i class="fa-solid fa-house"></i><h1>Admin</h1></div>
         <ul>
@@ -40,142 +39,205 @@
     <div class="content">
         <div class="stok">
             <div class="title">
-                <ul>
-                    <h2>Stok Barang</h2>
-                    <li><button onclick="">Aksi</button>
-                        <ul class="dropdown">
-                            <li>Kode Barang:<br><input type="text:" name="kbarang" id="kbarang"></li>
-                            <li>Jenis Barang: <br><input type="text:" name="jbarang" id="jbarang"></li>
-                            <li>Brand:<br> <input type="text:" name="brand" id="brand"></li>
-                            <li>Berat:<br> <input type="text:" name="berat" id="berat"></li>
-                            <li>Stok:<br> <input type="text:" name="stok" id="stok"></li>
-                            <li>Harga:<br> <input type="text:" name="harga" id="harga"></li>
-                            <button onclick="addHtmlTableRow();">Tambah</button>
-                            <button onclick="editHtmlTbleSelectedRow()">Edit</button>
-                            <button onclick="removeSelectedRow()">Hapus</button>
-                        </ul>
-                    </li>
+                <h2>Stok Barang</h2>
+            </div>
+            <div class="box">
+                <span>Add New +</span>
+                <ul class="active">
+                    <li>Kode Barang:<br><input type="text:" name="kbarang" id="kbarang"></li>
+                    <li>Jenis Barang: <br><input type="text:" name="jbarang" id="jbarang"></li>
+                    <li>Brand:<br> <input type="text:" name="brand" id="brand"></li>
+                    <li>Berat:<br> <input type="text:" name="berat" id="berat"></li>
+                    <li>Stok:<br> <input type="text:" name="stok" id="stok"></li>
+                    <li>Harga:<br> <input type="text:" name="harga" id="harga"></li>
+                    <button onclick="addHtmlTableRow();">Tambah</button>
+                    <button onclick="editHtmlTbleSelectedRow()">Edit</button>
+                    <button onclick="removeSelectedRow()">Hapus</button>
                 </ul>
             </div>
-            <table id="table" border="1">
-                <thead>
-                    <tr>
-                        <th>Kode Barang</th>
-                        <th>Jenis Barang</th>
-                        <th>Brand</th>
-                        <th>Berat/Ukuran</th>
-                        <th>Stok Barang</th>
-                        <th>Harga</th>
-                        <th colspan="2">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>BRG0001</td>
-                        <td>Pakan kucing</td>
-                        <td>bold</td>
-                        <td>1 kg</td>
-                        <td>100</td>
-                        <td>Rp.15.000,00</td>
-                        <td><button onclick="removeSelectedRow()"><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button onclick="editHtmlTbleSelectedRow()"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>BRG0002</td>
-                        <td>Pakan kucing</td>
-                        <td>bold</td>
-                        <td>500g</td>
-                        <td>100</td>
-                        <td>Rp.8.000,00</td>
-                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>BRG0003</td>
-                        <td>Pakan Anjing</td>
-                        <td>bold</td>
-                        <td>1 kg</td>
-                        <td>100</td>
-                        <td>Rp.20.000,00</td>
-                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>BRG0004</td>
-                        <td>Pakan Burung</td>
-                        <td>Jawara</td>
-                        <td>1 kg</td>
-                        <td>100</td>
-                        <td>Rp.30.000,00</td>
-                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>BRG0005</td>
-                        <td>Pakan ikan</td>
-                        <td>Takari</td>
-                        <td>1 kg</td>
-                        <td>100</td>
-                        <td>Rp.30.000,00</td>
-                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>BRG0006</td>
-                        <td>Pakan Ikan</td>
-                        <td>Hiroyuki</td>
-                        <td>1 kg</td>
-                        <td>10</td>
-                        <td>Rp.60.000,00</td>
-                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>BRG0007</td>
-                        <td>Sisir Kucing</td>
-                        <td>none</td>
-                        <td>10 gr</td>
-                        <td>100</td>
-                        <td>Rp.15.000,00</td>
-                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>BRG0008</td>
-                        <td>Obat Jamur</td>
-                        <td>Wormectin</td>
-                        <td>5 ml</td>
-                        <td>100</td>
-                        <td>Rp.17.000,00</td>
-                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>BRG0009</td>
-                        <td>Pakan Kelinci</td>
-                        <td>Timoty hay</td>
-                        <td>1 kg</td>
-                        <td>100</td>
-                        <td>Rp.60.000,00</td>
-                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>BRG0010</td>
-                        <td>Obat Jamur</td>
-                        <td>Radix 55</td>
-                        <td>10 ml</td>
-                        <td>100</td>
-                        <td>Rp.15.000,00</td>
-                        <td><button><i class="fa-solid fa-trash-can"></i></button></td>
-                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+         
+            <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+            <script>
+                $(document).ready(function(){
+                    $('span').click(function(){
+                        $('ul').toggleClass('klik')
+                    })
+                })
+            </script>
+        <table id="table" border="1">
+            <thead>
+                <tr>
+                    <th>Kode Barang</th>
+                    <th>Jenis Barang</th>
+                    <th>Brand</th>
+                    <th>Berat/Ukuran</th>
+                    <th>Stok Barang</th>
+                    <th>Harga</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="data">BRG0001</td>
+                    <td class="data">Pakan kucing</td>
+                    <td class="data">bold</td>
+                    <td class="data">1 kg</td>
+                    <td class="data">100</td>
+                    <td class="data">Rp.15.000,00</td>
+                    <td>
+                        <button class="edit"> Edit </button>
+                        <button class="save"> Save </button>
+                        <button class="delete"> Delete </button>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>BRG0002</td>
+                    <td>Pakan kucing</td>
+                    <td>bold</td>
+                    <td>500g</td>
+                    <td>100</td>
+                    <td>Rp.8.000,00</td>
+                    <td>
+                        <button class="edit"> Edit </button>
+                        <button class="save"> Save </button>
+                        <button class="delete"> Delete </button>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>BRG0003</td>
+                    <td>Pakan Anjing</td>
+                    <td>bold</td>
+                    <td>1 kg</td>
+                    <td>100</td>
+                    <td>Rp.20.000,00</td>
+                    <td>
+                        <button class="edit"> Edit </button>
+                        <button class="save"> Save </button>
+                        <button class="delete"> Delete </button>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>BRG0004</td>
+                    <td>Pakan Burung</td>
+                    <td>Jawara</td>
+                    <td>1 kg</td>
+                    <td>100</td>
+                    <td>Rp.30.000,00</td>
+                    <td>
+                        <button class="edit"> Edit </button>
+                        <button class="save"> Save </button>
+                        <button class="delete"> Delete </button>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>BRG0005</td>
+                    <td>Pakan ikan</td>
+                    <td>Takari</td>
+                    <td>1 kg</td>
+                    <td>100</td>
+                    <td>Rp.30.000,00</td>
+                    <td>
+                        <button class="edit"> Edit </button>
+                        <button class="save"> Save </button>
+                        <button class="delete"> Delete </button>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>BRG0006</td>
+                    <td>Pakan Ikan</td>
+                    <td>Hiroyuki</td>
+                    <td>1 kg</td>
+                    <td>10</td>
+                    <td>Rp.60.000,00</td>
+                    <td>
+                        <button class="edit"> Edit </button>
+                        <button class="save"> Save </button>
+                        <button class="delete"> Delete </button>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>BRG0007</td>
+                    <td>Sisir Kucing</td>
+                    <td>none</td>
+                    <td>10 gr</td>
+                    <td>100</td>
+                    <td>Rp.15.000,00</td>
+                    <td>
+                        <button class="edit"> Edit </button>
+                        <button class="save"> Save </button>
+                        <button class="delete"> Delete </button>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>BRG0008</td>
+                    <td>Obat Jamur</td>
+                    <td>Wormectin</td>
+                    <td>5 ml</td>
+                    <td>100</td>
+                    <td>Rp.17.000,00</td>
+                    <td>
+                        <button class="edit"> Edit </button>
+                        <button class="save"> Save </button>
+                        <button class="delete"> Delete </button>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>BRG0009</td>
+                    <td>Pakan Kelinci</td>
+                    <td>Timoty hay</td>
+                    <td>1 kg</td>
+                    <td>100</td>
+                    <td>Rp.60.000,00</td>
+                    <td>
+                        <button class="edit"> Edit </button>
+                        <button class="save"> Save </button>
+                        <button class="delete"> Delete </button>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>BRG0010</td>
+                    <td>Obat Jamur</td>
+                    <td>Radix 55</td>
+                    <td>10 ml</td>
+                    <td>100</td>
+                    <td>Rp.15.000,00</td>
+                    <td>
+                        <button class="edit"> Edit </button>
+                        <button class="save"> Save </button>
+                        <button class="delete"> Delete </button>
+                    </td> 
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <script>
-            
+    <script>  
+        $(document).on('click', '.edit', function() {  
+          $(this).parent().siblings('td.data').each(function() {  
+            var content = $(this).html();  
+            $(this).html('<input value="' + content + '" />');  
+          });  
+          $(this).siblings('.save').show();  
+          $(this).siblings('.delete').hide();  
+          $(this).hide();  
+        });  
+        $(document).on('click', '.save', function() {  
+          $('input').each(function() {  
+            var content = $(this).val();  
+            $(this).html(content);  
+            $(this).contents().unwrap();  
+          });  
+          $(this).siblings('.edit').show();  
+          $(this).siblings('.delete').show();  
+          $(this).hide();  
+        });  
+        $(document).on('click', '.delete', function() {  
+          $(this).parents('tr').remove();  
+        });  
+        $('.add').click(function() {  
+          $(this).parents('table').append('<tr><td class="data"></td><td class="data"></td><td class="data"></td><td><button class="save">Save</button><button class="edit">Edit</button> <button class="delete">Delete</button></td></tr>');  
+        });  
+        </script>  
+    <script>           
         var rIndex,
             table = document.getElementById("table");
         
@@ -239,7 +301,6 @@
             cell4.innerHTML = berat;
             cell5.innerHTML = stok;
             cell6.innerHTML = harga;
-            // call the function to set the event to the new row
             selectedRowToInput();
         }
         }
@@ -260,36 +321,6 @@
                   document.getElementById("harga").value = this.cells[5].innerHTML;
                 };
             }
-        }
-        selectedRowToInput();
-        
-        function editHtmlTbleSelectedRow()
-        {
-            var kbarang = document.getElementById("kbarang").value,
-                jbarang = document.getElementById("jbarang").value,
-                brand = document.getElementById("brand").value;
-                berat = document.getElementById("berat").value;
-                stok = document.getElementById("stok").value;
-                harga = document.getElementById("harga").value;
-           if(!checkEmptyInput()){
-            table.rows[rIndex].cells[0].innerHTML = kbarang;
-            table.rows[rIndex].cells[1].innerHTML = jbarang;
-            table.rows[rIndex].cells[2].innerHTML = brand;
-            table.rows[rIndex].cells[3].innerHTML = berat;
-            table.rows[rIndex].cells[4].innerHTML = stok;
-            table.rows[rIndex].cells[5].innerHTML = harga;
-          }
-        }
-        
-        function removeSelectedRow()
-        {
-            table.deleteRow(rIndex);
-            document.getElementById("kbarang").value = "";
-            document.getElementById("jbarang").value = "";
-            document.getElementById("brand").value = "";
-            document.getElementById("berat").value = "";
-            document.getElementById("stok").value = "";
-            document.getElementById("harga").value = "";
         }
     </script>
 </body>

@@ -161,7 +161,7 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 }
 
-.box h1{
+.isi h1{
     color: white;
 }
 
@@ -183,19 +183,117 @@ i:hover{
 }
 
 table{
-    margin-top: 5vh;
+    margin-top: 10vh;
 }
 
+.edit {  
+    outline: none;  
+    background: none;  
+    border: none;  
+}
+
+.save {  
+outline: none;  
+background: none;  
+border: none;  
+}
+
+.delete {  
+outline: none;  
+background: none;  
+border: none;  
+}  
+.edit {  
+padding: 5px 10px;  
+cursor: pointer;  
+}  
+.save {  
+padding: 5px 10px;  
+cursor: pointer;  
+}  
+.delete {  
+padding: 5px 10px;  
+cursor: pointer;  
+}  
+
+.save {  
+display: none;  
+background: #32AD60;  
+color: #ffffff;  
+} 
+.save :hover{
+background: darken(#EC5840, 10%); 
+}
+
+.edit {  
+background: #2199e8;  
+color: #ffffff;  
+}
+
+.edit :hover{
+background: darken(#EC5840, 10%); 
+}
+
+.delete {  
+background: #EC5840;  
+color: #ffffff;
+}
+
+.delete :hover{
+    background: darken(#EC5840, 10%); 
+}  
+
+.box{
+    position: absolute;
+}
+
+.box span{
+    padding:10px;
+    position: relative;
+    width: 250px;
+    height: 80px;
+    font-size: 20px;
+    background: green;
+    color: #FFFFFF;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.box ul{
+    position: absolute;
+    margin:10px 0;
+    padding: 0;
+    width: 30vh;
+    background: white;
+    transform-origin: top;
+    transform:perspective(1000px) rotateX(-90deg);
+    transition: 0.5s;
+}
+.box ul.klik{
+    transform:perspective(1000px) rotateX(0deg);			
+}
+.box ul li{
+    list-style: none;
+}
+.box ul li a{
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    background: #FC3497;
+    color:#FFFFFF;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+}
+.box ul li a:hover{
+    background: #3A26F0;
+}
 .title h2{
     border-bottom: 2px solid lightgray;
     color: black;
     margin-top: 7vh;
-}
-
-.title button{
-    font-size: 15px;
-    color: black;
-    margin-top: 3vh;
+    margin-bottom: 3vh;
 }
 
 td{
@@ -226,21 +324,6 @@ table tbody tr:hover td{
     background-color: #FFE9A0;
     border-color: #47B5FF;
     transition: all .2s;
-}
-
-.title ul li .dropdown{
-    display: none;
-
-}
-
-.title ul li:hover .dropdown{
-    display: block;
-    background: white;
-    position: absolute;
-    padding: 10px;
-}
-.title ul li:hover .dropdown li{
-    display: block;
 }
 
 @media screen and (max-width: 1050px) {
