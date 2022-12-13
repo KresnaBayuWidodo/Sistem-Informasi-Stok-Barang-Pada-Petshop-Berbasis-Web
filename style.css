@@ -83,6 +83,7 @@ nav ul li:hover .dropdown li{
 nav ul li:hover .dropdown li button{
     padding: 10px;
     border: none;
+    text-align: center;
     background-color:#47B5FF;
     font-size: 18px;
     color: #fafafa;
