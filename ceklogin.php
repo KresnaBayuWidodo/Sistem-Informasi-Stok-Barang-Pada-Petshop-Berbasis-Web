@@ -11,6 +11,6 @@ if (mysqli_num_rows($sql) == 0) {
     alert("username dan pasword salah! silahkan login kembali."); document.location="stok.php";</script>';
 }else{
     echo '<script language = "javascript">
-    alert("anda berhasil login!."); document.location="barang.php";</script>';
+    alert("Selamat Datang Admin!."); document.location="barang.php";</script>';
 }
 ?>

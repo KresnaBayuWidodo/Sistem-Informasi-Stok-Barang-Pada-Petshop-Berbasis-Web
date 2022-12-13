@@ -41,21 +41,19 @@
             </div>
             <div class="box">
                 <span>Add New +</span>
-                <form method="post" action="add.php">
                 <ul class="active">
-                    <li>Kode Barang:<br> <input type="text" name="kode_barang" value="" required></li>
-                    <li>Jenis Barang: <br><input type="text" name="jenis_barang" value="" required></li>
-                    <li>Brand:<br> <input type="text" name="brand" value="" required></li>
-                    <li>Berat:<br> <input type="text" name="berat" value="" required></li>
-                    <li>Stok:<br> <input type="text" name="stok" value="" required></li>
-                    <li>Harga:<br> <input type="text" name="harga" value="" required></li>
-                    <li aria-colspan="6">
-                    <button type="submit">simpan</button>
-                    </li>
+                    <li>Kode Barang:<br><input type="text:" name="kbarang" id="kbarang"></li>
+                    <li>Jenis Barang: <br><input type="text:" name="jbarang" id="jbarang"></li>
+                    <li>Brand:<br> <input type="text:" name="brand" id="brand"></li>
+                    <li>Berat:<br> <input type="text:" name="berat" id="berat"></li>
+                    <li>Stok:<br> <input type="text:" name="stok" id="stok"></li>
+                    <li>Harga:<br> <input type="text:" name="harga" id="harga"></li>
+                    <button onclick="addHtmlTableRow();">Tambah</button>
+                    <button onclick="editHtmlTbleSelectedRow()">Edit</button>
+                    <button onclick="removeSelectedRow()">Hapus</button>
                 </ul>
-                </form>
             </div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+         
             <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
             <script>
                 $(document).ready(function(){
@@ -64,41 +62,39 @@
                     })
                 })
             </script>
-        <table id="table" border="1">
-            <thead>
+            <script src="admin.js"></script>
+            <table id="table" border="1">
+                <thead>
+                    <tr>
+                        <th>Nama Supplier</th>
+                        <th>Alamat</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <?php
+                include "koneksi.php";
+
+                $query = "SELECT * FROM barang";
+
+                $hasil_query = mysqli_query($koneksi, $query);
+
+                while($data = mysqli_fetch_assoc($hasil_query)): ?>
                 <tr>
-                    <th>Kode Barang</th>
-                    <th>Jenis Barang</th>
-                    <th>Brand</th>
-                    <th>Berat(kg)</th>
-                    <th>Stok Barang</th>
-                    <th>Harga</th>
-                    <th>Aksi</th>
+                    <td class="data"><?=$data['kode_barang']; ?></td>
+                    <td class="data"><?=$data['jenis_barang']; ?></td>
+                    <td class="data"><?=$data['brand']; ?></td>
+                    <td class="data"><?=$data['berat']; ?></td>
+                    <td class="data"><?=$data['stok']; ?></td>
+                    <td class="data"><?=$data['harga']; ?></td>
+                    <td>
+                        <button class="edit"> Edit </button>
+                        <button class="save"> Save </button>
+                        <button class="delete"> Delete </button>
+                    </td> 
                 </tr>
-            </thead>
-            <?php
-            include "koneksi.php";
-
-            $query = "SELECT * FROM barang";
-
-            $hasil_query = mysqli_query($koneksi, $query);
-
-            while($data = mysqli_fetch_assoc($hasil_query)): ?>
-            <tr>
-                <td class="data"><?=$data['kode_barang']; ?></td>
-                <td class="data"><?=$data['jenis_barang']; ?></td>
-                <td class="data"><?=$data['brand']; ?></td>
-                <td class="data"><?=$data['berat']; ?></td>
-                <td class="data"><?=$data['stok']; ?></td>
-                <td class="data"><?=$data['harga']; ?></td>
-                <td>
-                    <button class="edit"> Edit </button>
-                    <button class="save"> Save </button>
-                    <button class="delete"> Delete </button>
-                </td> 
-            </tr>
-            <?php endwhile; ?>
-        </table>
+                <?php endwhile; ?>
+            </table>
+        </div>
     </div>
     <script>  
         $(document).on('click', '.edit', function() {  
