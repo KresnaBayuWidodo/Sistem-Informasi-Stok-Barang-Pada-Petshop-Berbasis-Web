@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="dasboard.css">
 </head>
 <body>
     <div class="sidebar">
@@ -63,10 +63,9 @@
             <table id="table" border="1">
                 <thead>
                     <tr>
-                        <th>Hari/Tanggal</th>
-                        <th>Id Barang</th>
+                        <th>NO</th>
+                        <th>Tanggal</th>
                         <th>Nama Barang</th>
-                        <th>Berat/Ukuran</th>
                         <th>Barang Masuk</th>
                         <th>Barang Keluar</th>
                         <th>Aksi</th>
@@ -75,18 +74,17 @@
                 <?php
                 include "koneksi.php";
 
-                $query = "SELECT * FROM barang";
+                $query = "SELECT * FROM laporan";
 
                 $hasil_query = mysqli_query($koneksi, $query);
 
                 while($data = mysqli_fetch_assoc($hasil_query)): ?>
                 <tr>
-                    <td class="data"><?=$data['kode_barang']; ?></td>
-                    <td class="data"><?=$data['jenis_barang']; ?></td>
-                    <td class="data"><?=$data['brand']; ?></td>
-                    <td class="data"><?=$data['berat']; ?></td>
-                    <td class="data"><?=$data['stok']; ?></td>
-                    <td class="data"><?=$data['harga']; ?></td>
+                    <td class="data"><?=$data['NO']; ?></td>
+                    <td class="data"><?=$data['Tanggal']; ?></td>
+                    <td class="data"><?=$data['Nama Barang']; ?></td>
+                    <td class="data"><?=$data['Barang Masuk']; ?></td>
+                    <td class="data"><?=$data['Barang Keluar']; ?></td>
                     <td>
                         <button class="edit"> Edit </button>
                         <button class="save"> Save </button>

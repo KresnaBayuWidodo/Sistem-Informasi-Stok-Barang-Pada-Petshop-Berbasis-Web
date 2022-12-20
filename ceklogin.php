@@ -8,9 +8,9 @@ $sql = mysqli_query($koneksi, "SELECT * FROM tb_login WHERE username ='" . $user
 
 if (mysqli_num_rows($sql) == 0) {
     echo '<script language = "javascript">
-    alert("username dan pasword salah! silahkan login kembali."); document.location="stok.php";</script>';
+    alert("username dan pasword salah! silahkan login kembali."); document.location="index.php";</script>';
 }else{
     echo '<script language = "javascript">
-    alert("Selamat Datang Admin!."); document.location="barang.php";</script>';
+    alert("Selamat Datang Admin!."); document.location="admin.php";</script>';
 }
 ?>

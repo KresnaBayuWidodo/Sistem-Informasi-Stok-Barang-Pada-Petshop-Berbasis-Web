@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem informasi Stok</title>
-    <link rel="stylesheet" href="stok.css">
+    <link rel="stylesheet" href="stokk.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
@@ -15,18 +15,9 @@
             <div class="menu">
                 <ul>
                     <li><a href="index.php #home">Home</a></li>
-                    <li><a href="index.php #about">About</a></li> 
-                    <li><a href="index.php #contact">Contact</a></li>
-                    <li><a href="#" class="tbl-biru">Login</a>
-                        <ul class="dropdown">
-                            <li><form action="ceklogin.php" method="post" role="form">
-                                <input type="text:" name="username"  placeholder="Username">
-                                <input type="password" name="pasword" placeholder="Password">
-                                <input type="submit" value="login">
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="pesan.php" class="tbl-biru" style="">Info Pemesanan</a></li>
+                    
                 </ul>
             </div>
         </div>
@@ -41,29 +32,48 @@
                     <th>Kode Barang</th>
                     <th>Brand</th>
                     <th>Nama Barang</th>
-                    <th>Berat/Ukuran</th>
+                    <th>Berat(Kg)</th>
                     <th>Stok Barang</th>
                     <th>Harga</th>
                 </tr>
             </thead>
             <?php
-            include "koneksi.php";
-
-            $query = "SELECT * FROM barang";
-
-            $hasil_query = mysqli_query($koneksi, $query);
-
-            while($data = mysqli_fetch_assoc($hasil_query)): ?>
+                include "koneksi.php";
+                $halaman = 10;
+                $page    =isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
+                $mulai    =($page>1) ? ($page * $halaman) - $halaman : 0;
+                
+                $result    =mysqli_query($koneksi, "SELECT * FROM barang");
+                $total = mysqli_num_rows($result);
+                $pages = ceil($total/$halaman);
+                
+                $tampilMas    =mysqli_query($koneksi, "SELECT * FROM barang LIMIT $mulai, $halaman");
+                $no    =$mulai+1;
+                while($mas    =mysqli_fetch_array($tampilMas)){
+            ?>
             <tr>
-                <td class="data"><?=$data['kode_barang']; ?></td>
-                <td class="data"><?=$data['jenis_barang']; ?></td>
-                <td class="data"><?=$data['brand']; ?></td>
-                <td class="data"><?=$data['berat']; ?></td>
-                <td class="data"><?=$data['stok']; ?></td>
-                <td class="data"><?=$data['harga']; ?></td>
+                <td class="data"><?=$mas['nomor']; ?></td>
+                <td class="data"><?=$mas['jenis_barang']; ?></td>
+                <td class="data"><?=$mas['brand']; ?></td>
+                <td class="data"><?=$mas['berat']; ?></td>
+                <td class="data"><?=$mas['stok']; ?></td>
+                <td class="data"><?=$mas['harga']; ?></td>
             </tr>
-            <?php endwhile; ?>
-            <button><a href="https://wa.me/6285815818103/?text=helo"><i class="fa-solid fa-circle-info"></i>info pemesanan</a></button>
+                <?php  
+                    }
+                ?>
+        </table>
+        <br />
+        <div style="font-weight:bold; margin-left: 5vh; margin-top: none; " >
+            halaman
+            <?php
+                for ($i=1; $i<=$pages ; $i++){
+            ?>
+                <a href="stok.php?halaman=<?php echo $i; ?>" style="text-decoration:none; color: black;">   <u><?php echo $i; ?></u></a>
+            <?php
+                }
+            ?>
+        </div>
         </table>
     </div>
     <div id="contact">

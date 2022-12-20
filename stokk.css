@@ -58,34 +58,6 @@ nav ul li a:hover{
     text-decoration: underline;
 } 
 
-nav ul li .dropdown{
-    display: none;
-
-}
-
-nav ul li:hover .dropdown{
-    display: block;
-    background: white;
-    position: absolute;
-    padding: 10px;
-}
-nav ul li:hover .dropdown li{
-    display: block;
-}
-
-nav ul li:hover .dropdown li button{
-    padding: 10px;
-    border: none;
-    background-color:#47B5FF;
-    font-size: 18px;
-    color: #fafafa;
-}
-
-nav ul li:hover .dropdown li input{
-    padding: 5px;
-    border-radius: 1px;
-}    
-
 a.tbl-biru {
     background: #47B5FF;
     border-radius: 20px;
@@ -153,12 +125,14 @@ table tbody tr:hover td{
     transition: all .2s;
 }
 
-.content button{
+.content .pesan{
+    background: #47B5FF;
     margin-left: 5vh;
-    margin-bottom: 3vh;
+    margin-bottom: 0;
+    margin-top: 5vh;
 }
 
-.content button a{
+.pesan a{
     font-size: 20px;
     color: black;
 }
@@ -166,6 +140,10 @@ table tbody tr:hover td{
 #contact {
     background: #FFE9A0;
     padding: 50xp 0xp 50xp 0xp;
+}
+
+.pagin{
+    text-align: center;
 }
 
 .footer {

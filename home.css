@@ -72,7 +72,7 @@ nav ul li .dropdown{
 
 nav ul li:hover .dropdown{
     display: block;
-    background: white;
+    background: whitesmoke;
     position: absolute;
     padding: 10px;
 }
@@ -80,11 +80,11 @@ nav ul li:hover .dropdown li{
     display: block;
 }
 
-nav ul li:hover .dropdown li button{
+nav ul li:hover .dropdown li .tombol{
     padding: 10px;
     border: none;
     background-color:#47B5FF;
-    font-size: 18px;
+    font-size: 15px;
     color: #fafafa;
 }
 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="dasboard.css">
 </head>
 <body>
     <div class="sidebar">
@@ -66,7 +66,9 @@
             <table id="table" border="1">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Nama Supplier</th>
+                        <th>Phone</th>
                         <th>Alamat</th>
                         <th>Aksi</th>
                     </tr>
@@ -74,18 +76,16 @@
                 <?php
                 include "koneksi.php";
 
-                $query = "SELECT * FROM barang";
+                $query = "SELECT * FROM supplier";
 
                 $hasil_query = mysqli_query($koneksi, $query);
 
                 while($data = mysqli_fetch_assoc($hasil_query)): ?>
                 <tr>
-                    <td class="data"><?=$data['kode_barang']; ?></td>
-                    <td class="data"><?=$data['jenis_barang']; ?></td>
-                    <td class="data"><?=$data['brand']; ?></td>
-                    <td class="data"><?=$data['berat']; ?></td>
-                    <td class="data"><?=$data['stok']; ?></td>
-                    <td class="data"><?=$data['harga']; ?></td>
+                    <td class="data"><?=$data['id']; ?></td>
+                    <td class="data"><?=$data['nama']; ?></td>
+                    <td class="data"><?=$data['phone']; ?></td>
+                    <td class="data"><?=$data['alamat']; ?></td>
                     <td>
                         <button class="edit"> Edit </button>
                         <button class="save"> Save </button>

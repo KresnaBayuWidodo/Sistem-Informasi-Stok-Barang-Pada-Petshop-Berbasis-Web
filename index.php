@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Sistem Informasi Stok Barang</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>  
     <nav>
@@ -15,16 +15,7 @@
             <li><a href="index.php #home">Home</a></li>
             <li><a href="index.php #about">About</a></li> 
             <li><a href="index.php #contact">Contact</a></li>
-            <li><a href="#" class="tbl-biru">Login</a>
-                <ul class="dropdown">
-                    <li><form action="ceklogin.php" method="post" role="form">
-                        <input type="text:" name="username"  placeholder="Username">
-                        <input type="password" name="pasword" placeholder="Password">
-                        <input type="submit" value="login">
-                        </form>
-                    </li>
-                </ul>
-            </li>
+            <li><a href="login.php" class="tbl-biru">Login</a></li>
         </ul>
       </div>
      </div>

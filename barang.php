@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="dasboard.css">
 </head>
 <body>
     <div class="sidebar">
         <div class="admin"><i class="fa-solid fa-house"></i><h1>Admin</h1></div>
         <ul>
             <li><a href="Admin.php"><i class="fa-solid fa-gauge"></i>&nbsp;<span class="teks">Dashboard</span></a></li>
-            <li><a href="barang.php"><i class="fa-solid fa-box"></i>&nbsp;&nbsp;<span class="teks">Stok Barang</span></a></li>
+            <li><a href="barang.php"><i class="fa-solid fa-box"></i>&nbsp;<span class="teks">Stok Barang</span></a></li>
             <li><a href="Supplier.php"><i class="fa-solid fa-users"></i></i>&nbsp;<span class="teks">Daftar Suplier</span></a></li>
             <li><a href="Laporan.php"><i class="fa-solid fa-clipboard-list"></i>&nbsp;<span class="teks">Laporan</span></a></li>
             <li><a href="index.php"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;<span class="teks">LogOut</span></a></li>
@@ -22,10 +22,16 @@
     <div class="container">
         <div class="header">
             <div class="nav">
-                <div class="search">
-                    <input type="text" placeholder="Pencarian...">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></i></button>
-                </div>
+                <form action="barang.php" method="get" class="search">
+                    <input type="text" placeholder="Pencarian..." name="cari">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <?php 
+                    if(isset($_GET['cari'])){
+                        $cari = $_GET['cari'];
+                        echo "<b>Hasil pencarian : ".$cari."</b>";
+                    }
+                ?>
                 <div class="user">
                     <a href="" class="btn"><i class="fa-solid fa-plus"></i></a>
                     <a href="" class="btn"><i class="fa-solid fa-bell"></i></a>
@@ -43,7 +49,7 @@
                 <span>Add New +</span>
                 <form method="post" action="add.php">
                 <ul class="active">
-                    <li>Kode Barang:<br> <input type="text" name="kode_barang" value="" required></li>
+                    <li>Kode Barang:<br> <input type="text" name="nomor" value="" required></li>
                     <li>Jenis Barang: <br><input type="text" name="jenis_barang" value="" required></li>
                     <li>Brand:<br> <input type="text" name="brand" value="" required></li>
                     <li>Berat:<br> <input type="text" name="berat" value="" required></li>
@@ -64,7 +70,7 @@
                     })
                 })
             </script>
-        <table id="table" border="1">
+        <table id="table" border="">
             <thead>
                 <tr>
                     <th>Kode Barang</th>
@@ -73,32 +79,61 @@
                     <th>Berat(kg)</th>
                     <th>Stok Barang</th>
                     <th>Harga</th>
-                    <th>Aksi</th>
+                    <th colspan="2">Aksi</th>
                 </tr>
             </thead>
             <?php
-            include "koneksi.php";
+                include "koneksi.php";
+                $halaman = 5;
+                $page    =isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
+                $mulai    =($page>1) ? ($page * $halaman) - $halaman : 0;
+                
+                $result    =mysqli_query($koneksi, "SELECT * FROM barang");
+                $total = mysqli_num_rows($result);
+                $pages = ceil($total/$halaman);
+                
+                $tampilMas    =mysqli_query($koneksi, "SELECT * FROM barang LIMIT $mulai, $halaman");
+                $no    =$mulai+1;
 
-            $query = "SELECT * FROM barang";
+                if(isset($_GET['cari'])){
+                    $cari = $_GET['cari'];
+                    $data = mysqli_query($koneksi, "select * from barang where jenis_barang like '%".$cari."%'");				
+                }else{
+                    $data = mysqli_query($koneksi,"select * from barang");		
+                }
+                $no = 1;
+                while($mas = mysqli_fetch_array($data))
 
-            $hasil_query = mysqli_query($koneksi, $query);
-
-            while($data = mysqli_fetch_assoc($hasil_query)): ?>
+                while ($mas = mysqli_fetch_array($tampilMas)){
+            ?>
             <tr>
-                <td class="data"><?=$data['kode_barang']; ?></td>
-                <td class="data"><?=$data['jenis_barang']; ?></td>
-                <td class="data"><?=$data['brand']; ?></td>
-                <td class="data"><?=$data['berat']; ?></td>
-                <td class="data"><?=$data['stok']; ?></td>
-                <td class="data"><?=$data['harga']; ?></td>
+                <td class="data"><?=$mas['nomor']; ?></td>
+                <td class="data"><?=$mas['jenis_barang']; ?></td>
+                <td class="data"><?=$mas['brand']; ?></td>
+                <td class="data"><?=$mas['berat']; ?></td>
+                <td class="data"><?=$mas['stok']; ?></td>
+                <td class="data"><?=$mas['harga']; ?></td>
                 <td>
-                    <button class="edit"> Edit </button>
-                    <button class="save"> Save </button>
-                    <button class="delete"> Delete </button>
-                </td> 
+                    <button class="edit" type="submit"> Edit </button>
+                    <button class="save" type="submit"> Save </button>
+                </td>
+                <td><a href="delete.php?nomor=<?=$mas['nomor']; ?>"><i class="fa-solid fa-trash-can"></i></td>
             </tr>
-            <?php endwhile; ?>
+            <?php  
+                }
+            ?>
         </table>
+        <br />
+        <div style="font-weight:bold;">
+            halaman
+            <?php
+                for ($i=1; $i<=$pages ; $i++){
+            ?>
+                <a href="barang.php?halaman=<?php echo $i; ?>" style="text-decoration:none">   <u><?php echo $i; ?></u></a>
+            <?php
+                }
+            ?>
+        </div>
     </div>
     <script>  
         $(document).on('click', '.edit', function() {  
@@ -126,6 +161,6 @@
         $('.add').click(function() {  
           $(this).parents('table').append('<tr><td class="data"></td><td class="data"></td><td class="data"></td><td><button class="save">Save</button><button class="edit">Edit</button> <button class="delete">Delete</button></td></tr>');  
         });  
-        </script>  
+    </script>  
 </body>
 </html>
