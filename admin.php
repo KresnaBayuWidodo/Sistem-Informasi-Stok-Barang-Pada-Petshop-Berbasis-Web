@@ -12,8 +12,7 @@
         <ul>
             <li><a href="Admin.php"><i class="fa-solid fa-gauge"></i>&nbsp;<span class="teks">Dashboard</span></a></li>
             <li><a href="barang.php"><i class="fa-solid fa-box"></i>&nbsp;&nbsp;<span class="teks">Stok Barang</span></a></li>
-            <li><a href="Supplier.php"><i class="fa-solid fa-users"></i></i>&nbsp;<span class="teks">Daftar Suplier</span></a></li>
-            <li><a href="Laporan.php"><i class="fa-solid fa-clipboard-list"></i>&nbsp;<span class="teks">Laporan</span></a></li>
+            <li><a href="Laporan.php"><i class="fa-solid fa-clipboard-list"></i>&nbsp;&nbsp;<span class="teks">Laporan</span></a></li>
             <li><a href="index.php"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;<span class="teks">LogOut</span></a></li>
         </ul>
     </div>

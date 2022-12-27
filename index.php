@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Sistem Informasi Stok Barang</title>
-  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>  
     <nav>
@@ -39,16 +39,33 @@
           <p>Belanja Online Kebutuhan Hewan Peliharaan HANYA disini !
             Menyediakan brand lokal dan internasional yang terus bertambah untuk PetLovers di seluruh Indonesia.
             Kami memiliki lebih dari 5.000 produk yg dapat memenuhi kebutuhan hewan peliharaan kesayangan Anda dengan menawarkan berbagai produk pilihan dari berbagai kategori, mulai dari makanan, vitamin dan obat-obatan, mainan, aksesoris, baju, kandang, dan masih banyak lagi.</p>
-        </div>
+          <p><a href="#stok" class="tbl-biru">Selengkapnya!</a></p>
+          </div>
         <img src="https://img.freepik.com/free-vector/empty-pet-shop-interior-with-no-people-petshop-banner-cartoon-concept-parrot-cage-fish-aquarium-counter-domestic-animal-feed-toys-sale-business_575670-1153.jpg?w=826&t=st=1665489594~exp=1665490194~hmac=83bc3418ce99a9de7b44f1608f3f6cf2b02ebcf50d678e3d7fb19127f5dfde25" alt="gambar Petshop" height="400px" width="600px">
       </section>
       <section id="stok">
-        <div class="tengah">
-          <h2>Stok Barang</h2>
+        <div class="tengah">\
+          <div class="kolom">
+          <p class="deskripsi">Barang Yang tersedia di Toko Kami</p>
+          <h2>Apa Saja Yang Anda Bisa Dapatkan di Petshop Kami</h2>
+          <p>Belanja Online Kebutuhan Hewan Peliharaan HANYA disini ! Menyediakan brand lokal dan internasional yang terus bertambah untuk PetLovers di seluruh Indonesia. Kami memiliki lebih dari 5.000 produk yg dapat memenuhi kebutuhan hewan peliharaan kesayangan Anda dengan menawarkan berbagai produk pilihan dari berbagai kategori, mulai dari makanan, vitamin dan obat-obatan, mainan, aksesoris, baju, kandang, dan masih banyak lagi.</p> 
         </div>
-        <div class="stok">
+        <div class="list">
           <div class="daftarbarang">
-            <img src="" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe3RukBIna84vlyYfOz_6s4Vj29PZJMhGYhw&usqp=CAU" alt=""style=" width: 200px; height: 193px;">
+            <p>Berbagai Makanan Hewan</p> 
+          </div>
+          <div class="daftarbarang">
+            <img src="https://4.bp.blogspot.com/-DhaZx5vTSQM/WZa3o1izdII/AAAAAAAACM8/Bqt-63VANVgJ1ygmjgZ3faDmnsbxm5AjACLcBGAs/s1600/toko%2Bpakan%2Bobat%2Bkucing%2Banjing%2Bpenitipan%2Bdokter%2Bhewan%2Bpetshop%2Bdi%2Bmadiun%2B%25284%2529.jpeg" alt="" style=" width: 200px; height: 193px;">
+            <p>Berbagai Aksesoris Hewan</p> 
+          </div>
+          <div class="daftarbarang">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRELIbpPX3EJU5Nxh6qltpDVxTQ1I7hApttw&usqp=CAU" alt="" style=" width: 200px; height: 193px;">
+            <p>Berbagai Jenis Kandang</p> 
+          </div>
+          <div class="daftarbarang">
+            <img src="https://wongjember.com/wp-content/uploads/2020/12/toko-hewan-peliharaan.jpg" alt="" style=" width: 200px; height: 193px;">
+            <p>Penitipan Hewan Peliharaan</p> 
           </div>
         </div>
       </section>

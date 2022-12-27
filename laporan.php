@@ -14,8 +14,7 @@
         <ul>
             <li><a href="Admin.php"><i class="fa-solid fa-gauge"></i>&nbsp;<span class="teks">Dashboard</span></a></li>
             <li><a href="barang.php"><i class="fa-solid fa-box"></i>&nbsp;&nbsp;<span class="teks">Stok Barang</span></a></li>
-            <li><a href="Supplier.php"><i class="fa-solid fa-users"></i></i>&nbsp;<span class="teks">Daftar Suplier</span></a></li>
-            <li><a href="Laporan.php"><i class="fa-solid fa-clipboard-list"></i>&nbsp;<span class="teks">Laporan</span></a></li>
+            <li><a href="Laporan.php"><i class="fa-solid fa-clipboard-list"></i>&nbsp;&nbsp;<span class="teks">Laporan</span></a></li>
             <li><a href="index.php"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;<span class="teks">LogOut</span></a></li>
         </ul>
     </div>
@@ -41,15 +40,19 @@
             </div>
             <div class="box">
                 <span>Add New +</span>
+                <form method="post" action="add_laporan.php">
                 <ul class="active">
-                    <li>Hari/Tanggal:<br><input type="text:" name="tanggal" id="tanggal"></li>
-                    <li>Id Barang: <br><input type="text:" name="id" id="id"></li>
-                    <li>Nama Barang:<br> <input type="text:" name="nama" id="nama"></li>
-                    <li>Berat:<br> <input type="text:" name="berat" id="berat"></li>
-                    <li>Barang Masuk:<br> <input type="text:" name="bmasuk" id="bmasuk"></li>
-                    <li>Barang Keluar:<br> <input type="text:" name="bkeluar" id="bkeluar"></li>
-                    <button onclick="addHtmlTableRow();">Tambah</button>
+                    <li>No:<br> <input type="text" name="id_barang" value="" required></li>
+                    <li>Tanggal: <br><input type="date" name="Tanggal" value="" required></li>
+                    <li>Nama Barang:<br> <input type="text" name="nm_barang" value="" required></li>
+                    <li>Brand:<br> <input type="text" name="Merk" value="" required></li>
+                    <li>Barang Masuk:<br> <input type="text" name="masuk" value="" required></li>
+                    <li>Barang Keluar:<br> <input type="text" name="keluar" value="" required></li>
+                    <li aria-colspan="5">
+                    <button type="submit" style=" margin-top: 1vh; margin-left: 2vh; cursor: pointer; ; background: #32AD60;">simpan</button>
+                    </li>
                 </ul>
+                </form>
             </div>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
             <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
@@ -66,9 +69,10 @@
                         <th>NO</th>
                         <th>Tanggal</th>
                         <th>Nama Barang</th>
+                        <th>Brand</th>
                         <th>Barang Masuk</th>
                         <th>Barang Keluar</th>
-                        <th>Aksi</th>
+                        <th colspan="2">Aksi</th>
                     </tr>
                 </thead>
                 <?php
@@ -80,47 +84,18 @@
 
                 while($data = mysqli_fetch_assoc($hasil_query)): ?>
                 <tr>
-                    <td class="data"><?=$data['NO']; ?></td>
+                    <td class="data"><?=$data['id_barang']; ?></td>
                     <td class="data"><?=$data['Tanggal']; ?></td>
-                    <td class="data"><?=$data['Nama Barang']; ?></td>
-                    <td class="data"><?=$data['Barang Masuk']; ?></td>
-                    <td class="data"><?=$data['Barang Keluar']; ?></td>
-                    <td>
-                        <button class="edit"> Edit </button>
-                        <button class="save"> Save </button>
-                        <button class="delete"> Delete </button>
-                    </td> 
+                    <td class="data"><?=$data['nm_barang']; ?></td>
+                    <td class="data"><?=$data['Merk']; ?></td>
+                    <td class="data"><?=$data['masuk']; ?></td>
+                    <td class="data"><?=$data['keluar']; ?></td>
+                    <td><a href="edit_laporan.php?id_barang=<?=$data['id_barang']; ?>" style="color: blue;"><i class="fa-solid fa-pen-to-square"></i></td>
+                    <td><a href="delete_laporan.php?id_barang=<?=$data['id_barang']; ?>" style="color: red;"><i class="fa-solid fa-trash-can"></i></td>
                 </tr>
                 <?php endwhile; ?>
             </table>
         </div>
     </div>
-    <script>  
-        $(document).on('click', '.edit', function() {  
-          $(this).parent().siblings('td.data').each(function() {  
-            var content = $(this).html();  
-            $(this).html('<input value="' + content + '" />');  
-          });  
-          $(this).siblings('.save').show();  
-          $(this).siblings('.delete').hide();  
-          $(this).hide();  
-        });  
-        $(document).on('click', '.save', function() {  
-          $('input').each(function() {  
-            var content = $(this).val();  
-            $(this).html(content);  
-            $(this).contents().unwrap();  
-          });  
-          $(this).siblings('.edit').show();  
-          $(this).siblings('.delete').show();  
-          $(this).hide();  
-        });  
-        $(document).on('click', '.delete', function() {  
-          $(this).parents('tr').remove();  
-        });  
-        $('.add').click(function() {  
-          $(this).parents('table').append('<tr><td class="data"></td><td class="data"></td><td class="data"></td><td><button class="save">Save</button><button class="edit">Edit</button> <button class="delete">Delete</button></td></tr>');  
-        });  
-        </script>  
 </body>
 </html>

@@ -13,9 +13,8 @@
         <div class="admin"><i class="fa-solid fa-house"></i><h1>Admin</h1></div>
         <ul>
             <li><a href="Admin.php"><i class="fa-solid fa-gauge"></i>&nbsp;<span class="teks">Dashboard</span></a></li>
-            <li><a href="barang.php"><i class="fa-solid fa-box"></i>&nbsp;<span class="teks">Stok Barang</span></a></li>
-            <li><a href="Supplier.php"><i class="fa-solid fa-users"></i></i>&nbsp;<span class="teks">Daftar Suplier</span></a></li>
-            <li><a href="Laporan.php"><i class="fa-solid fa-clipboard-list"></i>&nbsp;<span class="teks">Laporan</span></a></li>
+            <li><a href="barang.php"><i class="fa-solid fa-box"></i>&nbsp;&nbsp;<span class="teks">Stok Barang</span></a></li>
+            <li><a href="Laporan.php"><i class="fa-solid fa-clipboard-list"></i>&nbsp;&nbsp;<span class="teks">Laporan</span></a></li>
             <li><a href="index.php"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;<span class="teks">LogOut</span></a></li>
         </ul>
     </div>
@@ -26,12 +25,6 @@
                     <input type="text" placeholder="Pencarian..." name="cari">
                     <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
-                <?php 
-                    if(isset($_GET['cari'])){
-                        $cari = $_GET['cari'];
-                        echo "<b>Hasil pencarian : ".$cari."</b>";
-                    }
-                ?>
                 <div class="user">
                     <a href="" class="btn"><i class="fa-solid fa-plus"></i></a>
                     <a href="" class="btn"><i class="fa-solid fa-bell"></i></a>
@@ -97,13 +90,11 @@
 
                 if(isset($_GET['cari'])){
                     $cari = $_GET['cari'];
-                    $data = mysqli_query($koneksi, "select * from barang where jenis_barang like '%".$cari."%'");				
+                    $tampilMas = mysqli_query($koneksi, "select * from barang where jenis_barang like '%".$cari."%'");				
                 }else{
-                    $data = mysqli_query($koneksi,"select * from barang");		
+                    $tampilMas = mysqli_query($koneksi,"select * from barang");		
                 }
                 $no = 1;
-                while($mas = mysqli_fetch_array($data))
-
                 while ($mas = mysqli_fetch_array($tampilMas)){
             ?>
             <tr>
@@ -113,11 +104,8 @@
                 <td class="data"><?=$mas['berat']; ?></td>
                 <td class="data"><?=$mas['stok']; ?></td>
                 <td class="data"><?=$mas['harga']; ?></td>
-                <td>
-                    <button class="edit" type="submit"> Edit </button>
-                    <button class="save" type="submit"> Save </button>
-                </td>
-                <td><a href="delete.php?nomor=<?=$mas['nomor']; ?>"><i class="fa-solid fa-trash-can"></i></td>
+                <td><a href="edit.php?nomor=<?=$mas['nomor']; ?>" style="color: blue;"><i class="fa-solid fa-pen-to-square"></i></td>
+                <td><a href="delete.php?nomor=<?=$mas['nomor']; ?>" style="color: red;"><i class="fa-solid fa-trash-can"></i></td>
             </tr>
             <?php  
                 }
@@ -135,32 +123,5 @@
             ?>
         </div>
     </div>
-    <script>  
-        $(document).on('click', '.edit', function() {  
-          $(this).parent().siblings('td.data').each(function() {  
-            var content = $(this).html();  
-            $(this).html('<input value="' + content + '" />');  
-          });  
-          $(this).siblings('.save').show();  
-          $(this).siblings('.delete').hide();  
-          $(this).hide();  
-        });  
-        $(document).on('click', '.save', function() {  
-          $('input').each(function() {  
-            var content = $(this).val();  
-            $(this).html(content);  
-            $(this).contents().unwrap();  
-          });  
-          $(this).siblings('.edit').show();  
-          $(this).siblings('.delete').show();  
-          $(this).hide();  
-        });  
-        $(document).on('click', '.delete', function() {  
-          $(this).parents('tr').remove();  
-        });  
-        $('.add').click(function() {  
-          $(this).parents('table').append('<tr><td class="data"></td><td class="data"></td><td class="data"></td><td><button class="save">Save</button><button class="edit">Edit</button> <button class="delete">Delete</button></td></tr>');  
-        });  
-    </script>  
 </body>
 </html>
