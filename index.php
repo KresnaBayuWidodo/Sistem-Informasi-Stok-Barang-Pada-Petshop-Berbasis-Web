@@ -44,7 +44,7 @@
         <img src="https://img.freepik.com/free-vector/empty-pet-shop-interior-with-no-people-petshop-banner-cartoon-concept-parrot-cage-fish-aquarium-counter-domestic-animal-feed-toys-sale-business_575670-1153.jpg?w=826&t=st=1665489594~exp=1665490194~hmac=83bc3418ce99a9de7b44f1608f3f6cf2b02ebcf50d678e3d7fb19127f5dfde25" alt="gambar Petshop" height="400px" width="600px">
       </section>
       <section id="stok">
-        <div class="tengah">\
+        <div class="tengah">
           <div class="kolom">
           <p class="deskripsi">Barang Yang tersedia di Toko Kami</p>
           <h2>Apa Saja Yang Anda Bisa Dapatkan di Petshop Kami</h2>

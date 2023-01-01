@@ -90,12 +90,14 @@
 
                 if(isset($_GET['cari'])){
                     $cari = $_GET['cari'];
-                    $tampilMas = mysqli_query($koneksi, "select * from barang where jenis_barang like '%".$cari."%'");				
+                    $data = mysqli_query($koneksi, "select * from barang where jenis_barang like '%".$cari."%'");				
                 }else{
-                    $tampilMas = mysqli_query($koneksi,"select * from barang");		
+                    $data = mysqli_query($koneksi,"select * from barang");		
                 }
                 $no = 1;
-                while ($mas = mysqli_fetch_array($tampilMas)){
+                while ($mas = mysqli_fetch_array($tampilMas))
+                while ($mas = mysqli_fetch_array($data)){
+                
             ?>
             <tr>
                 <td class="data"><?=$mas['nomor']; ?></td>

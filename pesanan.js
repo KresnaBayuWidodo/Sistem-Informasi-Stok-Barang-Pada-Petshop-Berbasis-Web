@@ -4,7 +4,7 @@ $(document).on("click", ".send_form", function () {
     phone = "6285815818103",
     walink2 = "Pesanan",
     text_yes = "Terkirim.",
-    text_no = "Isi semua Formulir lalu klik Send.";
+    text_no = "Isi semua sebelum mengirim.";
 
     if ("" != input_blanter.value) {
         var input_select1 = $("#wa_select :selected").text(),
