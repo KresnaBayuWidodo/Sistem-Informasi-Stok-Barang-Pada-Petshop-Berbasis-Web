@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="dasboard.css">
+    <link rel="stylesheet" href="admin.css">
 </head>
 <body>
     <div class="sidebar">
@@ -49,7 +49,7 @@
                     <li>Stok:<br> <input type="text" name="stok" value="" required></li>
                     <li>Harga:<br> <input type="text" name="harga" value="" required></li>
                     <li aria-colspan="6">
-                    <button type="submit">simpan</button>
+                    <button type="submit" style="background-color: green; color: white; padding: 10px; font-size: 12px; border: 0; margin-top: 20px;">simpan</button>
                     </li>
                 </ul>
                 </form>
@@ -63,7 +63,7 @@
                     })
                 })
             </script>
-        <table id="table" border="">
+        <table id="table" border="1" class="scroll">
             <thead>
                 <tr>
                     <th>Kode Barang</th>
@@ -72,7 +72,8 @@
                     <th>Berat(kg)</th>
                     <th>Stok Barang</th>
                     <th>Harga</th>
-                    <th colspan="2">Aksi</th>
+                    <th>Edit</th>
+                    <th>Hapus</th>
                 </tr>
             </thead>
             <?php
@@ -90,30 +91,29 @@
 
                 if(isset($_GET['cari'])){
                     $cari = $_GET['cari'];
-                    $data = mysqli_query($koneksi, "select * from barang where jenis_barang like '%".$cari."%'");				
+                    $tampilMas = mysqli_query($koneksi, "select * from barang where jenis_barang like '%".$cari."%'");				
                 }else{
-                    $data = mysqli_query($koneksi,"select * from barang");		
+                    $tampilMas = mysqli_query($koneksi,"select * from barang");		
                 }
                 $no = 1;
-                while ($mas = mysqli_fetch_array($tampilMas))
-                while ($mas = mysqli_fetch_array($data)){
+                while ($mas = mysqli_fetch_array($tampilMas)):
                 
             ?>
             <tr>
-                <td class="data"><?=$mas['nomor']; ?></td>
-                <td class="data"><?=$mas['jenis_barang']; ?></td>
-                <td class="data"><?=$mas['brand']; ?></td>
-                <td class="data"><?=$mas['berat']; ?></td>
-                <td class="data"><?=$mas['stok']; ?></td>
-                <td class="data"><?=$mas['harga']; ?></td>
+                <td><?=$mas['nomor']; ?></td>
+                <td><?=$mas['jenis_barang']; ?></td>
+                <td><?=$mas['brand']; ?></td>
+                <td><?=$mas['berat']; ?></td>
+                <td><?=$mas['stok']; ?></td>
+                <td><?=$mas['harga']; ?></td>
                 <td><a href="edit.php?nomor=<?=$mas['nomor']; ?>" style="color: blue;"><i class="fa-solid fa-pen-to-square"></i></td>
                 <td><a href="delete.php?nomor=<?=$mas['nomor']; ?>" style="color: red;"><i class="fa-solid fa-trash-can"></i></td>
             </tr>
             <?php  
-                }
+                endwhile
             ?>
         </table>
-        <br />
+        <br/>
         <div style="font-weight:bold;">
             halaman
             <?php

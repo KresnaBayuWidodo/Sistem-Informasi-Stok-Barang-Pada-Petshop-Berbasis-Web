@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="dasboard.css">
+    <link rel="stylesheet" href="admin.css">
 </head>
 <body>
     <div class="sidebar">
@@ -21,10 +21,10 @@
     <div class="container">
         <div class="header">
             <div class="nav">
-                <div class="search">
-                    <input type="text" placeholder="Pencarian...">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></i></button>
-                </div>
+                <form action="laporan.php" method="get" class="search">
+                    <input type="text" placeholder="Pencarian..." name="cari">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
                 <div class="user">
                     <a href="" class="btn"><i class="fa-solid fa-plus"></i></a>
                     <a href="" class="btn"><i class="fa-solid fa-bell"></i></a>
@@ -49,7 +49,7 @@
                     <li>Barang Masuk:<br> <input type="text" name="masuk" value="" required></li>
                     <li>Barang Keluar:<br> <input type="text" name="keluar" value="" required></li>
                     <li aria-colspan="5">
-                    <button type="submit" style=" margin-top: 1vh; margin-left: 2vh; cursor: pointer; ; background: #32AD60;">simpan</button>
+                    <button type="submit" style="background-color: green; color: white; padding: 10px; font-size: 12px; border: 0; margin-top: 20px;">simpan</button>
                     </li>
                 </ul>
                 </form>
@@ -63,7 +63,7 @@
                     })
                 })
             </script>
-            <table id="table" border="1">
+            <table id="table" border="1" class="scroll">
                 <thead>
                     <tr>
                         <th>NO</th>
@@ -72,29 +72,54 @@
                         <th>Brand</th>
                         <th>Barang Masuk</th>
                         <th>Barang Keluar</th>
-                        <th colspan="2">Aksi</th>
+                        <th>Edit</th>
+                        <th>Hapus</th>
                     </tr>
                 </thead>
                 <?php
-                include "koneksi.php";
-
-                $query = "SELECT * FROM laporan";
-
-                $hasil_query = mysqli_query($koneksi, $query);
-
-                while($data = mysqli_fetch_assoc($hasil_query)): ?>
+                    include "koneksi.php";
+                    $halaman = 5;
+                    $page    =isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
+                    $mulai    =($page>1) ? ($page * $halaman) - $halaman : 0;
+                    
+                    $result    =mysqli_query($koneksi, "SELECT * FROM laporan");
+                    $total = mysqli_num_rows($result);
+                    $pages = ceil($total/$halaman);
+                    
+                    $tampilMas    =mysqli_query($koneksi, "SELECT * FROM laporan LIMIT $mulai, $halaman");
+                    $no    =$mulai+1;
+    
+                    if(isset($_GET['cari'])){
+                        $cari = $_GET['cari'];
+                        $tampilMas = mysqli_query($koneksi, "select * from laporan where nm_barang like '%".$cari."%'");				
+                    }else{
+                        $tampilMas = mysqli_query($koneksi,"select * from laporan");		
+                    }
+                    $no = 1;
+                    while ($mas = mysqli_fetch_array($tampilMas)){
+                ?>
                 <tr>
-                    <td class="data"><?=$data['id_barang']; ?></td>
-                    <td class="data"><?=$data['Tanggal']; ?></td>
-                    <td class="data"><?=$data['nm_barang']; ?></td>
-                    <td class="data"><?=$data['Merk']; ?></td>
-                    <td class="data"><?=$data['masuk']; ?></td>
-                    <td class="data"><?=$data['keluar']; ?></td>
-                    <td><a href="edit_laporan.php?id_barang=<?=$data['id_barang']; ?>" style="color: blue;"><i class="fa-solid fa-pen-to-square"></i></td>
-                    <td><a href="delete_laporan.php?id_barang=<?=$data['id_barang']; ?>" style="color: red;"><i class="fa-solid fa-trash-can"></i></td>
+                    <td><?=$mas['id_barang']; ?></td>
+                    <td><?=$mas['Tanggal']; ?></td>
+                    <td><?=$mas['nm_barang']; ?></td>
+                    <td><?=$mas['Merk']; ?></td>
+                    <td><?=$mas['masuk']; ?></td>
+                    <td><?=$mas['keluar']; ?></td>
+                    <td><a href="edit_laporan.php?id_barang=<?=$mas['id_barang']; ?>" style="color: blue;"><i class="fa-solid fa-pen-to-square"></i></td>
+                    <td><a href="delete_laporan.php?id_barang=<?=$mas['id_barang']; ?>" style="color: red;"><i class="fa-solid fa-trash-can"></i></td>
                 </tr>
-                <?php endwhile; ?>
+                <?php } ?>
             </table>
+            <div style="font-weight:bold;">
+                halaman
+                <?php
+                    for ($i=1; $i<=$pages ; $i++){
+                ?>
+                    <a href="laporan.php?halaman=<?php echo $i; ?>" style="text-decoration:none">   <u><?php echo $i; ?></u></a>
+                <?php
+                    }
+                ?>
+            </div>
         </div>
     </div>
 </body>

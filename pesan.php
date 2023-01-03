@@ -3,7 +3,7 @@
       <title>Order page</title>
       <link rel="stylesheet" href="pesanan.css">
       <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-      <script text="text/javascript" src="pesanan.js"></script>
+      <script text="text/javascript" src="pesan.js"></script>
     </head>  
 <body>
     <div class="container">
@@ -25,11 +25,11 @@
           <form class="whatsapp-form">
           <h2 class="lg-view">Hubungi Kami</h2>
           <h2 class="sm-view">Hubungi Kami</h2>
-              <input class="validate" id="wa_name" name="name" required="" type="text" value='' placeholder="Nama"/>        
-              <input class="validate" id="wa_email" name="email" required="" type="email" value='' placeholder="Id Barang"/>
-              <input class="validate" id="order_amount" name="amount" required="" type="number" value='' placeholder="Jumlah Pemesanan"/>
-              <input class="validate" id="wa_number" name="count" required="" value='' placeholder="No WA"/>
-              <textarea id='wa_textarea' placeholder='Deskripsi' maxlength='5000' row='1' required=""></textarea>
+              <input class="validate" id="wa_name" name="name" required="" type="text" value='' placeholder="Id Barang"/>
+              <input class="validate" id="order_amount" name="amount" required="" type="number" value='' placeholder="Jumlah Pesanan"/>     
+              <input class="validate" id="wa_email" name="email" required="" type="email" value='' placeholder="Email"/>
+              <input class="validate" id="wa_number" name="count" required="" type="int" value='' placeholder="No Wa"/>
+              <textarea id='wa_textarea' placeholder='Nama Lengkap dan Deskripsi Pesanan' maxlength='5000' row='1' required=""></textarea>
               <a class="send_form" href="javascript:void" type="submit" title="Send to Whatsapp">Kirim</a>
               <div id="text-info"></div>
           </form>

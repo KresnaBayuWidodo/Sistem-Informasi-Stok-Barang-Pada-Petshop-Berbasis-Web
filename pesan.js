@@ -19,7 +19,7 @@ $(document).on("click", ".send_form", function () {
         "?phone=" +
         phone +
         "&text=" +
-        walink2 +
+        "%0A" +
         "*Id Barang* : " +
         input_name1 +
         "%0A" +

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="edit.css">
+<link rel="stylesheet" href="editt.css">
 <body>
     <?php
     include "koneksi.php";
@@ -18,9 +18,8 @@
     ?>
 
     <form method="POST" action="update.php?nomor=<?=$nomor; ?>">
-        <h3>Form Edit</h3>
-        <a href="barang.php" type="button">Kembali</a>
-        <table class="datainput">
+        <h3 style="text-align: center;">Form Edit</h3>
+        <table class="base" style="align-items: center;">
             <tr>
                 <td>nomor</td>
                 <td>:</td>
@@ -51,7 +50,12 @@
                 <td>:</td>
                 <td><input type="text" name="harga" value="<?=$data['harga']; ?>" required></td>
             </tr>
+            <tr>
+                <td colspan="6">
+                    <a href="barang.php" type="button" style=" padding: 7px; box-sizing: border-box; border: 5px; background: red; color: white; text-decoration: none;">Kembali</a>
+                    <button type="submit" style=" cursor: pointer;">Simpan</button>
+                </td>
+            </tr>
         </table>
-        <button class="send_form" type="submit">Simpan</button>
     </form>
 </body>

@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="editt.css">
 <body>
     <?php
     include "koneksi.php";
@@ -18,8 +19,7 @@
 
     <form method="POST" action="update_laporan.php?id_barang=<?=$id_barang; ?>">
         <h3>Form Edit</h3>
-        <a href="laporan.php" type="button">Kembali</a>
-        <table>
+        <table class="base">
             <tr>
                 <td>id_barang</td>
                 <td>:</td>
@@ -41,17 +41,18 @@
                 <td><input type="text" name="Merk" value="<?=$data['Merk']; ?>" required></td>
             </tr>
             <tr>
-                <td>masuk</td>
+                <td>Barang masuk</td>
                 <td>:</td>
                 <td><input type="text" name="masuk" value="<?=$data['masuk']; ?>" required></td>
             </tr>
             <tr>
-                <td>keluar</td>
+                <td>Barang keluar</td>
                 <td>:</td>
                 <td><input type="text" name="keluar" value="<?=$data['keluar']; ?>" required></td>
             </tr>
             <tr>
                 <td colspan="6">
+                    <a href="laporan.php" type="button" style=" padding: 7px; box-sizing: border-box; border: 5px; background: red; color: white; text-decoration: none;">Kembali</a>
                     <button type="submit">Simpan</button>
                 </td>
             </tr>
