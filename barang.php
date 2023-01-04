@@ -114,16 +114,6 @@
             ?>
         </table>
         <br/>
-        <div style="font-weight:bold;">
-            halaman
-            <?php
-                for ($i=1; $i<=$pages ; $i++){
-            ?>
-                <a href="barang.php?halaman=<?php echo $i; ?>" style="text-decoration:none">   <u><?php echo $i; ?></u></a>
-            <?php
-                }
-            ?>
-        </div>
     </div>
 </body>
 </html>

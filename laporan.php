@@ -36,7 +36,7 @@
     <div class="content">
         <div class="stok">
             <div class="title">
-                <h2>Stok Barang</h2>
+                <h2>Laporan</h2>
             </div>
             <div class="box">
                 <span>Add New +</span>
@@ -66,7 +66,7 @@
             <table id="table" border="1" class="scroll">
                 <thead>
                     <tr>
-                        <th>NO</th>
+                        <th>Kode Barang</th>
                         <th>Tanggal</th>
                         <th>Nama Barang</th>
                         <th>Brand</th>
@@ -110,16 +110,6 @@
                 </tr>
                 <?php } ?>
             </table>
-            <div style="font-weight:bold;">
-                halaman
-                <?php
-                    for ($i=1; $i<=$pages ; $i++){
-                ?>
-                    <a href="laporan.php?halaman=<?php echo $i; ?>" style="text-decoration:none">   <u><?php echo $i; ?></u></a>
-                <?php
-                    }
-                ?>
-            </div>
         </div>
     </div>
 </body>

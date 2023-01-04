@@ -75,7 +75,7 @@
         <div class="footer">
           <div class="footer-section">
             <h3>Petshop Merdeka</h3>
-            <p>Sistem informasi Stok Barang Petshop Merdeka</p>
+            <a href="" style="color: black;">Sistem informasi Stok Barang Petshop Merdeka</a>
           </div>
           <div class="footer-section">
             <h3>Contact</h3>

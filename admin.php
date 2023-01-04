@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard Admin</title>
-    <link rel="stylesheet" href="dasboard.css">
+    <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
@@ -35,7 +35,7 @@
         <div class="cards">
             <div class="card">
                 <div class="isi">
-                    <h1>10</h1>
+                    <h1>11</h1>
                     <h3>Stok Barang</h3>
                 </div>
                 <div class="icon">
@@ -53,7 +53,7 @@
             </div>
             <div class="card">
                 <div class="isi">
-                    <h1>10</h1>
+                    <h1>11</h1>
                     <h3>Laporan</h3>
                 </div>
                 <div class="icon">
